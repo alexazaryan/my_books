@@ -4,6 +4,13 @@ import { createBookWithId } from "../../utilus/createBookWithId";
 import { addBook, fetchBooks } from "../../redux/slices/bookSlices";
 import { FaSpinner } from "react-icons/fa";
 import { selectIsLoading } from "../../redux/slices/bookSlices";
+import { setError } from "../../redux/slices/errorSlices";
+
+// home work start --------------------------------------------------------1
+// что такое инпут тайп сабмит \ батон - отличие
+// вывести ошибки бекенд
+// home work end ---------------------------------------------------------
+
 // import json
 import books from "../../data/books.json";
 
@@ -12,6 +19,16 @@ import styles from "./BookForm.module.css";
 
 export default function BookForm() {
   const isLoading = useSelector(selectIsLoading);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (title && author) {
+      dispatch(addBook(createBookWithId({ title, author }, "manual")));
+    } else {
+      dispatch(setError("plisse fill all fields"));
+    }
+  };
 
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
@@ -28,9 +45,11 @@ export default function BookForm() {
   const handelSubmit = (e) => {
     e.preventDefault();
 
+    // ----------------------------------------------------------------------5
     if (author && title) {
       dispatch(addBook(createBookWithId({ title, author }, "manual")));
     }
+    // ----------------------------------------------------------------------5
   };
 
   const handleRandomBookApi = () => {
@@ -41,7 +60,7 @@ export default function BookForm() {
     <div className={`${styles["app-block"]} ${styles["book-form"]}`}>
       <h2 className={`${styles["h2"]}`}>Add new book</h2>
 
-      <form onSubmit={handelSubmit}>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="title">Title: </label>
           <input

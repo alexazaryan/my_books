@@ -19,8 +19,6 @@ export default function Filter() {
   const authorFilter = useSelector(selectAuthorFilter);
   const selectCheckedBooks = useSelector(selectOnlyFavorite);
 
-  // console.log(select);
-
   const changeTitleFilter = (e) => {
     dispatch(setTitleFilter(e.target.value));
   };

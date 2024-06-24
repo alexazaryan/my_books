@@ -40,8 +40,6 @@ export default function BookList() {
   });
 
   const highLight = (text, filter) => {
-    // console.log("text=>", text, "filter=>", filter);
-
     if (!filter) {
       return text;
     }
