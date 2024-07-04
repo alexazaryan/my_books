@@ -7,7 +7,7 @@ import { selectIsLoading } from "../../redux/slices/bookSlices";
 import { setError } from "../../redux/slices/errorSlices";
 
 // home work start --------------------------------------------------------1
-// что такое инпут тайп сабмит \ батон - отличие
+
 // вывести ошибки бекенд
 // home work end ---------------------------------------------------------
 
@@ -45,11 +45,9 @@ export default function BookForm() {
   const handelSubmit = (e) => {
     e.preventDefault();
 
-    // ----------------------------------------------------------------------5
     if (author && title) {
       dispatch(addBook(createBookWithId({ title, author }, "manual")));
     }
-    // ----------------------------------------------------------------------5
   };
 
   const handleRandomBookApi = () => {

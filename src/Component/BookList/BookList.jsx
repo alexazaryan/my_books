@@ -70,7 +70,6 @@ export default function BookList() {
                 {++i} {highLight(book.title, titleFilter)} by
                 <strong> {highLight(book.author, authorFilter)}</strong>
                 <p>{book.source}</p>
-                {/* ----------------------------------------------------переписать reduser.books на slice()--- */}
               </div>
               <div className={`${styles["book-actions"]}`}>
                 <span onClick={() => handleToggle(book.id)}>

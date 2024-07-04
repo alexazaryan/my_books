@@ -22,10 +22,12 @@ const filterSlices = createSlice({
     },
 
     setAuthorFilter: (state, action) => {
+      // ...state
       state.author = action.payload;
     },
 
     setFavoriteFilter: (state) => {
+      // ...state
       state.onlyFavorite = !state.onlyFavorite;
     },
 
